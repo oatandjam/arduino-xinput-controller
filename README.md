@@ -12,7 +12,8 @@ Source code to emulate an XBox 360 controller using XInput
 - A, B, X and Y
 - D-Pad
 - Joystick (left and right)
-- Shoulder Buttons (digital triggers)
+- Joystick buttons
+- Shoulder buttons (digital triggers)
 - Home and Back button
 
 ## How to use
