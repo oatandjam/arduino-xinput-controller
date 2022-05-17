@@ -5,6 +5,9 @@ const uint8_t Pin_JoystickLX = A1;
 const uint8_t Pin_JoystickLY = A2;
 const uint8_t Pin_JoystickRX = A4;
 const uint8_t Pin_JoystickRY = A5;
+//joystick buttons
+const uint8_t Pin_ButtonL3= 13;
+const uint8_t Pin_ButtonR3= A3;
 //buttons
 const uint8_t Pin_ButtonA= 3;
 const uint8_t Pin_ButtonB= 4;
@@ -42,6 +45,8 @@ void setup() {
   pinMode(Pin_DpadR, INPUT_PULLUP);
   pinMode(Pin_DpadU, INPUT_PULLUP);
   pinMode(Pin_DpadD, INPUT_PULLUP);
+  pinMode(Pin_ButtonL3, INPUT_PULLUP);
+  pinMode(Pin_ButtonR3, INPUT_PULLUP);
   
   pinMode(Pin_LED, OUTPUT);
   digitalWrite(Pin_LED, LOW);
@@ -66,6 +71,8 @@ void loop() {
   boolean pressDpadR =!digitalRead(Pin_DpadR);
   boolean pressDpadU=!digitalRead(Pin_DpadU);
   boolean pressDpadD =!digitalRead(Pin_DpadD);
+  boolean pressL3 =digitalRead(Pin_ButtonL3);
+  boolean pressR3 =digitalRead(Pin_ButtonR3);
 
   int joystickLXValue = analogRead(Pin_JoystickLX);
   int joystickLYValue = analogRead(Pin_JoystickLY);
@@ -87,10 +94,9 @@ void loop() {
   XInput.setButton(DPAD_LEFT, pressDpadL);
   XInput.setButton(DPAD_RIGHT, pressDpadR);   
   XInput.setButton(DPAD_UP, pressDpadU);
-  XInput.setButton(DPAD_DOWN, pressDpadD);    
-
-
-    
+  XInput.setButton(DPAD_DOWN, pressDpadD);
+  XInput.setButton(BUTTON_L3, pressL3);
+  XInput.setButton(BUTTON_R3, pressR3);    
   
   XInput.setJoystick(JOY_LEFT, joystickLXValue, joystickLYValue);
   XInput.setJoystick(JOY_RIGHT, joystickRXValue, joystickRYValue);
