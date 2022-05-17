@@ -17,5 +17,5 @@ Source code to emulate an XBox 360 controller using XInput
 
 ## How to use
 - Clone repo
-- open control.io
+- open control.ino
 - upload to Arduino Micro
